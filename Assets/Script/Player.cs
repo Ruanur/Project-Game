@@ -8,8 +8,41 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 7f; //Unity 내에서 속도 변환이 가능하게 해줌 > public 
     [SerializeField] private GameInput gameInput;
+    [SerializeField] private LayerMask countersLayerMask;
+
     private bool isWalking;
+    private Vector3 lastInteractDir;
+
     private void Update()
+    {
+        HandleMovement();
+        HandleInteractions();
+    }
+    public bool IsWalking()
+    {
+        return isWalking;
+    }
+    private void HandleInteractions()
+    {
+        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+        Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
+
+        if (moveDir != Vector3.zero)
+        {
+            lastInteractDir = moveDir;
+        }
+
+        float interactDistance = 2f;
+        if (Physics.Raycast(transform.position, moveDir, out RaycastHit raycastHit, interactDistance))
+        {
+            Debug.Log(raycastHit.transform);
+        }
+        else
+        {
+            Debug.Log("-");
+        }
+    }
+    private void HandleMovement()
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
@@ -19,12 +52,12 @@ public class Player : MonoBehaviour
         float playerHeight = 2f;
         bool canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
 
-        if(!canMove) // Cannot move toward moveDir
+        if (!canMove) // Cannot move toward moveDir
         {
             Vector3 moveDirX = new Vector3(moveDir.x, 0f, 0f);
             canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
 
-            if(canMove) //Can move only on the X
+            if (canMove) //Can move only on the X
             {
                 moveDir = moveDirX;
             }
@@ -40,7 +73,7 @@ public class Player : MonoBehaviour
                     moveDir = moveDirZ;
                 }
                 else
-                {   
+                {
                     //Cannot move in any direction
                 }
             }
@@ -54,11 +87,8 @@ public class Player : MonoBehaviour
 
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
+    }
 
-    }
-    public bool IsWalking()
-    {
-        return isWalking;
-    }
-    }
+
+ }
 
