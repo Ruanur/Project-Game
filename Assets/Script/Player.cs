@@ -15,10 +15,10 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        gameInput.OnInterAction += GameInput_OnInterAction;
+        gameInput.OnInteractAction += GameInput_OnInteractAction;
     }
 
-    private void GameInput_OnInterAction(object sender, System.EventArgs e)
+    private void GameInput_OnInteractAction(object sender, System.EventArgs e)
     {
         Vector2 inputVector = gameInput.GetMovementVectorNormalized();
         Vector3 moveDir = new Vector3(inputVector.x, 0f, inputVector.y);
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         {
             if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
             {
-                
+                clearCounter.Interact();
             }
         }
     }
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
         {
             if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
             {
-                clearCounter.Interact(); 
+                
             }
         }
     }
