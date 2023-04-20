@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KitchenObjectSo : MonoBehaviour
+[CreateAssetMenu()]
+public class KitchenObjectSo : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Transform prefabs;
+    public Sprite sprite;
+    public string objectName;
 }
