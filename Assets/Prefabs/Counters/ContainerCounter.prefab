@@ -8,6 +8,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7134650446367941790}
     m_Modifications:
+    - target: {fileID: 102550813385737453, guid: 9a9137fa2b035d34e881701d2c178192,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 353237590725857035, guid: 9a9137fa2b035d34e881701d2c178192,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2298542010046885598, guid: 9a9137fa2b035d34e881701d2c178192,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -17,6 +27,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Selected
+      objectReference: {fileID: 0}
+    - target: {fileID: 4589716710238282922, guid: 9a9137fa2b035d34e881701d2c178192,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4589716710238282923, guid: 9a9137fa2b035d34e881701d2c178192,
         type: 3}
@@ -103,6 +118,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1a0afd856a35421469b28b916116fd9c, type: 2}
+    - target: {fileID: 7816906318471787887, guid: 9a9137fa2b035d34e881701d2c178192,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8143070647044102886, guid: 9a9137fa2b035d34e881701d2c178192,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8609693441769329850, guid: 9a9137fa2b035d34e881701d2c178192,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -312,7 +337,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7363235913509777766, guid: 05fc2dec377eaf84f8065f4b8750a2f6,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8374819064254627318}
+      addedObject: {fileID: 4714997983397213808}
   m_SourcePrefab: {fileID: 100100000, guid: 05fc2dec377eaf84f8065f4b8750a2f6, type: 3}
 --- !u!1 &1366306738915119036 stripped
 GameObject:
@@ -320,7 +345,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8419867289211649754}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8374819064254627318
+--- !u!114 &4714997983397213808
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -332,6 +357,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5121e9d6abbd69c4d8e5728b7fcc63bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kitchenObjectSO: {fileID: 11400000, guid: 48242c3817bfee64dadf8e7b2e8bd3ab, type: 2}
+  counterTopPoint: {fileID: 1566417470380344042}
+--- !u!4 &1566417470380344042 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7017849377860926512, guid: 05fc2dec377eaf84f8065f4b8750a2f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 8419867289211649754}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7134650446367941790 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1718754891858696772, guid: 05fc2dec377eaf84f8065f4b8750a2f6,
