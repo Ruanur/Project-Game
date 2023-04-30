@@ -14,7 +14,7 @@ public class Player : MonoBehaviour,IKitchenObjectParent
     public event EventHandler<OnSelectedCounterChangedEvenetArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEvenetArgs : EventArgs
     {
-        public ClearCounter selectedCounter;
+        public BaseCounter selectedCounter;
     }
 
     [SerializeField] private float moveSpeed = 7f; //Unity 내에서 속도 변환이 가능하게 해줌 > public 
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour,IKitchenObjectParent
 
     private bool isWalking;
     private Vector3 lastInteractDir;
-    private ClearCounter selectedCounter;
+    private BaseCounter selectedCounter;
     private KitchenObject kitchenObject;
 
     private void Awake()
@@ -71,11 +71,11 @@ public class Player : MonoBehaviour,IKitchenObjectParent
         float interactDistance = 2f;
         if (Physics.Raycast(transform.position, lastInteractDir, out RaycastHit raycastHit, interactDistance, countersLayerMask))
         {
-            if (raycastHit.transform.TryGetComponent(out ClearCounter clearCounter))
+            if (raycastHit.transform.TryGetComponent(out BaseCounter baseCounter))
             {
-                if (clearCounter != selectedCounter)
+                if (baseCounter != selectedCounter)
                 {
-                    SetSelectedCounter(clearCounter);
+                    SetSelectedCounter(baseCounter);
 
                     OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEvenetArgs
                     {
@@ -140,7 +140,7 @@ public class Player : MonoBehaviour,IKitchenObjectParent
         float rotateSpeed = 10f;
         transform.forward = Vector3.Slerp(transform.forward, moveDir, Time.deltaTime * rotateSpeed);
     }
-    private void SetSelectedCounter(ClearCounter selectedCounter)
+    private void SetSelectedCounter(BaseCounter selectedCounter)
     {
         this.selectedCounter = selectedCounter;
         OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEvenetArgs
