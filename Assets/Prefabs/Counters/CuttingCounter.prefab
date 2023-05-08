@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 9075940294891953745}
   - component: {fileID: 1954134185395279076}
   - component: {fileID: 8645309100330439850}
+  - component: {fileID: 3887274508802250082}
   m_Layer: 6
   m_Name: ProgressBarUI
   m_TagString: Untagged
@@ -195,6 +196,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3887274508802250082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091833271410968611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67778de993b43814fbf63cb33437905b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cuttingCounter: {fileID: 1318356234902752440}
+  barImage: {fileID: 2737266096379075953}
 --- !u!1 &3520899805176177014
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +297,7 @@ PrefabInstance:
     - target: {fileID: 1718754891858696772, guid: 05fc2dec377eaf84f8065f4b8750a2f6,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1718754891858696772, guid: 05fc2dec377eaf84f8065f4b8750a2f6,
         type: 3}
@@ -466,8 +481,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4589716710238282922, guid: d72bee846803d074784ffb8f64e993ca,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3706501257008916451}
   m_SourcePrefab: {fileID: 100100000, guid: d72bee846803d074784ffb8f64e993ca, type: 3}
+--- !u!1 &192593348100547224 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4589716710238282922, guid: d72bee846803d074784ffb8f64e993ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 4403897729312327218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3706501257008916451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192593348100547224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e00346a45961d4085701f283e02693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cuttingCounter: {fileID: 1318356234902752440}
 --- !u!4 &192593348100547225 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4589716710238282923, guid: d72bee846803d074784ffb8f64e993ca,
