@@ -2621,6 +2621,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: StoveCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 7259959426463967548, guid: e9a5af3be349f6942a2ef49d9be9205d,
+        type: 3}
+      propertyPath: burningRecipeSOArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259959426463967548, guid: e9a5af3be349f6942a2ef49d9be9205d,
+        type: 3}
+      propertyPath: fryingRecipeSOArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: d284f8ad3fd63ad42b782c85a21d3342,
+        type: 2}
+    - target: {fileID: 7259959426463967548, guid: e9a5af3be349f6942a2ef49d9be9205d,
+        type: 3}
+      propertyPath: burningRecipeSOArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: d19c45c398e226b43b50945547d393ef,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

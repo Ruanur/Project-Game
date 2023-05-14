@@ -62,9 +62,9 @@ public class StoveCounter : BaseCounter
 
                         GetKitchenObject().DestroySelf();
 
-                        KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
+                        KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);
 
-                        Debug.Log("Object Fried!");
+                        Debug.Log("Object Burned!");
                         state = State.Burned;
                     }
                     break;
