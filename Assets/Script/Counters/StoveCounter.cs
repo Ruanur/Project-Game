@@ -46,8 +46,6 @@ public class StoveCounter : BaseCounter
 
                         KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
 
-                        Debug.Log("Object Fried!");
-
                         state = State.Fried;
                         burningTimer = 0f;
                         burningRecipeSO = GetBurningRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
@@ -64,7 +62,6 @@ public class StoveCounter : BaseCounter
 
                         KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);
 
-                        Debug.Log("Object Burned!");
                         state = State.Burned;
                     }
                     break;
@@ -110,6 +107,8 @@ public class StoveCounter : BaseCounter
             {
                 //Player is not carrying anything
                 GetKitchenObject().SetKitchenObjectParent(player);
+
+                state = State.Idle;
             }
         }
 
