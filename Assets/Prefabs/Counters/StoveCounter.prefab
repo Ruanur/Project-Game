@@ -371,6 +371,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1813576872587154432}
   m_SourcePrefab: {fileID: 100100000, guid: 93af8b85a17635f40a5b76ed82a86c18, type: 3}
+--- !u!1 &3230139572532797001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5220305274835918574, guid: 93af8b85a17635f40a5b76ed82a86c18,
+    type: 3}
+  m_PrefabInstance: {fileID: 7251355253181677735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6561760226929009676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4589716710238282923, guid: 93af8b85a17635f40a5b76ed82a86c18,
@@ -395,3 +401,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfec400f8b95344e81c1dd79291bfa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stoveCounter: {fileID: 7259959426463967548}
+  stoveOnGameObject: {fileID: 7249871225189894592}
+  particlesGameObject: {fileID: 3230139572532797001}
+--- !u!1 &7249871225189894592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 17251720544094567, guid: 93af8b85a17635f40a5b76ed82a86c18,
+    type: 3}
+  m_PrefabInstance: {fileID: 7251355253181677735}
+  m_PrefabAsset: {fileID: 0}
