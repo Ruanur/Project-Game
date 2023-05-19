@@ -26,7 +26,7 @@ public class KitchenObject : MonoBehaviour
             Debug.LogError("Counter already has a KitchenObject!");
         }
 
-        kitchenObjectParent.SetkitchenObject(this);
+        kitchenObjectParent.SetKitchenObject(this);
 
         transform.parent = kitchenObjectParent.GetKitchenObjectFollowTransform();
         transform.localPosition = Vector3.zero;

@@ -12,7 +12,7 @@ public class Select : MonoBehaviour
         Player.Instance.OnSelectedCounterChanged += Player_OnSelectedCounterChanged;
     }
 
-    private void Player_OnSelectedCounterChanged(object sender, Player.OnSelectedCounterChangedEvenetArgs e)
+    private void Player_OnSelectedCounterChanged(object sender, Player.OnSelectedCounterChangedEventArgs e)
     {
         if(e.selectedCounter == baseCounter)
         {

@@ -1,15 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class GameInput : MonoBehaviour
 {
+
+
     public event EventHandler OnInteractAction;
-    public event EventHandler OnInteractAlternateAction; 
+    public event EventHandler OnInteractAlternateAction;
+
+
     private PlayerInputActions playerInputActions;
+
 
     private void Awake()
     {
@@ -35,7 +38,8 @@ public class GameInput : MonoBehaviour
         Vector2 inputVector = playerInputActions.Player.Move.ReadValue<Vector2>();
 
         inputVector = inputVector.normalized;
-        return inputVector;
 
-    }   
+        return inputVector;
+    }
+
 }
