@@ -7,7 +7,7 @@ public class KitchenGameManager : MonoBehaviour
 {
     public static KitchenGameManager Instance { get; private set; }
 
-    public EventHandler OnstateChanged;
+    public EventHandler OnStateChanged;
 
     private enum State
     {
@@ -36,7 +36,7 @@ public class KitchenGameManager : MonoBehaviour
                 if (waitingToStartTimer < 0f) 
                 {
                     state = State.CountdownToStart;
-                    OnstateChanged?.Invoke(this, EventArgs.Empty); 
+                    OnStateChanged?.Invoke(this, EventArgs.Empty); 
                 }
                 break;
             case State.CountdownToStart:
@@ -44,7 +44,7 @@ public class KitchenGameManager : MonoBehaviour
                 if (countdownToStartTimer < 0f)
                 {
                     state = State.GamePlaying;
-                    OnstateChanged?.Invoke(this, EventArgs.Empty);
+                    OnStateChanged?.Invoke(this, EventArgs.Empty);
                 }
                 break;
             case State.GamePlaying:
@@ -52,7 +52,7 @@ public class KitchenGameManager : MonoBehaviour
                 if (gamePlayingTimer < 0f)
                 {
                     state = State.GameOver;
-                    OnstateChanged?.Invoke(this, EventArgs.Empty);
+                    OnStateChanged?.Invoke(this, EventArgs.Empty);
                 }
                 break;
             case State.GameOver:
