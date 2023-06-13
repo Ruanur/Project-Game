@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlateIconsSingleUI : MonoBehaviour
 {
     [SerializeField] private Image image;
-    public void SetKichenObjectSO(KitchenObjectSO kitchenObejctSO) {
+    public void SetKitchenObjectSO(KitchenObjectSO kitchenObejctSO) {
         image.sprite = kitchenObejctSO.sprite;
 
 
