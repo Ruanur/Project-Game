@@ -8,8 +8,14 @@ using Unity.VisualScripting;
 public class Player : NetworkBehaviour, IKitchenObjectParent
 {
 
+    public static event EventHandler OnAnyPlayerSpawned;
 
-    //public static Player Instance { get; private set; }
+    public static void ResetStaticData()
+    {
+        OnAnyPlayerSpawned = null;
+    }
+
+    public static Player LocalInstance { get; private set; }
 
 
     public event EventHandler OnPickedSomething;
@@ -30,16 +36,19 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
     private BaseCounter selectedCounter;
     private KitchenObject kitchenObject;
 
-
-    private void Awake()
-    {
-        //Instance = this;
-    }
-
     private void Start()
     {
         GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
         GameInput.Instance.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        if(IsOwner)
+        {
+            LocalInstance = this;
+        }
+        OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
     }
 
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)
