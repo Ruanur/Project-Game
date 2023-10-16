@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using Unity.VisualScripting;
 
 public class Player : NetworkBehaviour, IKitchenObjectParent
 {
@@ -61,6 +62,10 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
 
     private void Update()
     {
+        if(!IsOwner)
+        {
+            return;
+        } 
         HandleMovement();
         HandleInteractions();
     }
