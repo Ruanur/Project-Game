@@ -2,18 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+
 public class KitchenObject : NetworkBehaviour 
 {
     [SerializeField] private KitchenObjectSO kitchenObjectSO;
 
+
     private IKitchenObjectParent kitchenObjectParent;
+    private FollowTransform followTransform;
+
+    private void Awake() 
+    {
+        followTransform = GetComponent<FollowTransform>();   
+    }
+
     public KitchenObjectSO GetKitchenObjectSO()
     {
         return kitchenObjectSO;
     }
 
-    public void SetKitchenObjectParent(IKitchenObjectParent kitchenObjectParent
-        )
+    public void SetKitchenObjectParent(IKitchenObjectParent kitchenObjectParent)
     {
         if (this.kitchenObjectParent != null)
         {
@@ -28,9 +36,10 @@ public class KitchenObject : NetworkBehaviour
 
         kitchenObjectParent.SetKitchenObject(this);
 
-        //transform.parent = kitchenObjectParent.GetKitchenObjectFollowTransform();
-        //transform.localPosition = Vector3.zero;
+        followTransform.SetTargetTransform(kitchenObjectParent.GetKitchenObjectFollowTransform());
     }
+
+    
     public IKitchenObjectParent GetKitchenObjectParent()
     {
         return kitchenObjectParent;
