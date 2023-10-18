@@ -58,7 +58,8 @@ public class CuttingCounter : BaseCounter, IHasProgress
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
                     {
                         //플레이어의 접시에 현재 카운터의 오브젝트를 추가하고 카운터의 오브젝트를 파괴(삭제)한다.
-                        GetKitchenObject().DestroySelf();
+                        KitchenObject.DestroyKitchenObject(GetKitchenObject());
+                        
                     }
                 }
             }

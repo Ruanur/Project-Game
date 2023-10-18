@@ -179,9 +179,9 @@ public class StoveCounter : BaseCounter, IHasProgress
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
                     {
                         //요리가 완료되었을 때 요리 결과를 생성하고 요리대에서 제거
-                        GetKitchenObject().DestroySelf();
+                        KitchenObject.DestroyKitchenObject(GetKitchenObject());
 
-                        state.Value = State.Idle;
+                        SetStateIdleServerRpc();
                     }
                 }
             }

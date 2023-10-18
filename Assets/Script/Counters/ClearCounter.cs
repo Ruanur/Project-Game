@@ -36,7 +36,7 @@ public class ClearCounter : BaseCounter
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
                     {
                         //플레이어의 접시에 현재 카운터에 있는 오브젝트(재료)를 접시에 추가하고, 놓여있던 오브젝트 파괴(삭제)
-                        GetKitchenObject().DestroySelf();
+                        KitchenObject.DestroyKitchenObject(GetKitchenObject());
                     }
                 }
                 else
@@ -48,7 +48,7 @@ public class ClearCounter : BaseCounter
                         if (plateKitchenObject.TryAddIngredient(player.GetKitchenObject().GetKitchenObjectSO()))
                         {
                             //카운터의 접시에 플레이어의 오브젝트(재료)를 추가하고, 플레이어의 오브젝트를 파괴(삭제)
-                            player.GetKitchenObject().DestroySelf();
+                            KitchenObject.DestroyKitchenObject(player.GetKitchenObject());
                         }
                     }
                 }
