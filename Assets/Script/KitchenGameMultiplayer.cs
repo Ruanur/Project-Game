@@ -40,13 +40,13 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     }
     //서버간 오브젝트 생성 동기화
 
-    private int GetKitchenObjectSOIndex(KitchenObjectSO kitchenObjectSO)
+    public int GetKitchenObjectSOIndex(KitchenObjectSO kitchenObjectSO)
     {
         //KitchenObjectSO를 목록에서 찾아 인덱스 반환
         return kitchenObjectListSO.kitchenObjectSOList.IndexOf(kitchenObjectSO);
     }
 
-    private KitchenObjectSO GetKitchenObjectSOFromIndex(int kitchenObjectSOIndex)
+    public KitchenObjectSO GetKitchenObjectSOFromIndex(int kitchenObjectSOIndex)
     {
         //주어진 인덱스를 사용해 KitcheneObjectSO를 반환
         return kitchenObjectListSO.kitchenObjectSOList[kitchenObjectSOIndex];
@@ -66,7 +66,7 @@ public class KitchenGameMultiplayer : NetworkBehaviour
         KitchenObject kitchenObject = kitchenObjectNetworkObject.GetComponent<KitchenObject>();
 
         ClearKitchenObjectOnParentClientRpc(kitchenObjectNetworkObjectReference);
-        
+
         kitchenObject.DestroySelf();
     }
 
