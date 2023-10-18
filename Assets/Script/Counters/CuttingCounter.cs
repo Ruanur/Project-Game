@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CuttingCounter : BaseCounter, IHasProgress
 {
+    //칼질(손질) 작업 중 어떤 작업이든 발생할 때 호출되는 이벤트 
     public static event EventHandler OnAnyCut;
 
     new public static void ResetStaticData()
@@ -17,17 +18,19 @@ public class CuttingCounter : BaseCounter, IHasProgress
 
     [SerializeField] private CuttingRecipeSO[] cuttingRecipeSOArray;
     private int cuttingProgress;
+
+    //플레이어와 상호작용하는 메소드 재정의
     public override void Interact(Player player)
     {
         if (!HasKitchenObject())
         {
-            //There is no KitchenObject here
+            //오브젝트가 없고
             if (player.HasKitchenObject())
             {
-                //Player is carrying something
+                //플레이어가 오브젝트를 가지고 있으며,
                 if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
                 {
-                    //Player carrying something that can be Cut
+                    //플레이어가 가지고 있는 오브젝트가 자를 수 있는 경우
                     player.GetKitchenObject().SetKitchenObjectParent(this);
                     cuttingProgress = 0;
 
@@ -39,37 +42,40 @@ public class CuttingCounter : BaseCounter, IHasProgress
             }
             else
             {
-                //Player not carrying anything
+                //플레이어가 아무것도 가지고 있지 않을 때는 아무런 수행을 하지 않는다.
             }
 
         }
         else
         {
-            //There is a KitchenObject here
+            //주방 객체가 있고,
             if (player.HasKitchenObject())
             {
-                //Player is carrying something
+                //플레이어가 오브젝트를 가지고 있으며,
                 if (player.GetKitchenObject().TryGetPlate(out PlateKitchenObject plateKitchenObject))
                 {
-                    //Player is holding a Plate
+                    //그 오브젝트가 접시일 때,
                     if (plateKitchenObject.TryAddIngredient(GetKitchenObject().GetKitchenObjectSO()))
                     {
+                        //플레이어의 접시에 현재 카운터의 오브젝트를 추가하고 카운터의 오브젝트를 파괴(삭제)한다.
                         GetKitchenObject().DestroySelf();
                     }
                 }
             }
             else
             {
-                //Player is not carrying anything
+                //플레이어가 아무것도 가지고 있지 않을 때, 현재 오브젝트를 플레이어의 오브젝트로 설정한다.
                 GetKitchenObject().SetKitchenObjectParent(player);
             }
         }
     }
+
+    //대체 상호작용(재료 손질 - Key : F) 메소드 재정의
     public override void InteractAlternate(Player player)
     {
         if(HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
         {
-            //There is a Kitchen Object here AND it can be cut
+            //오브젝트가 있고 자를 수 있는 오브젝트 일 때
             cuttingProgress++;
 
             OnCut?.Invoke(this, EventArgs.Empty);
@@ -84,9 +90,10 @@ public class CuttingCounter : BaseCounter, IHasProgress
 
             if (cuttingProgress>= cuttingRecipeSO.cuttingProgressMAX)
             {
-            KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
+                KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
 
                 GetKitchenObject().DestroySelf();
+
 
                 KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
             }
