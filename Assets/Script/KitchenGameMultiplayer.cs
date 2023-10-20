@@ -12,6 +12,8 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     private void Awake()
     {
         Instance = this; //싱글톤 패턴으로 현재 인스턴스 설정.
+
+        DontDestroyOnLoad(gameObject);
     }
     //싱글톤
 
@@ -23,16 +25,7 @@ public class KitchenGameMultiplayer : NetworkBehaviour
 
     private void NetworkManager_ConnectionApprovalCallback(NetworkManager.ConnectionApprovalRequest connectionApprovalRequest, NetworkManager.ConnectionApprovalResponse connectionApprovalResponse)
     {
-        if(KitchenGameManager.Instance.IsWaitingToStart())
-        {
-            connectionApprovalResponse.Approved = true;
-            connectionApprovalResponse.CreatePlayerObject = true;
-        }
-        else
-        {
-            connectionApprovalResponse.Approved = false;
-            
-        }
+        connectionApprovalResponse.Approved = true;
     }
 
     public void StartClient()
