@@ -23,7 +23,10 @@ public class DeliveryManager : NetworkBehaviour
     private void Awake()
     {
         Instance = this;
+
         waitingRecipeSOList = new List<RecipeSO>();
+
+        
     }
     private void Update()
     {
