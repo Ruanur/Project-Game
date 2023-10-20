@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+using System;
 
 public class KitchenGameMultiplayer : NetworkBehaviour 
 {
+    private const int MAX_PLAYER_AMOUNT = 4;
+
     public static KitchenGameMultiplayer Instance {get; private set;}
 
     [SerializeField] private KitchenObjectListSO kitchenObjectListSO;
+
+
+    public event EventHandler OnTryingToJoinGame;
+    public event EventHandler OnFailedToJoinGame;
 
     private void Awake()
     {
@@ -25,13 +34,35 @@ public class KitchenGameMultiplayer : NetworkBehaviour
 
     private void NetworkManager_ConnectionApprovalCallback(NetworkManager.ConnectionApprovalRequest connectionApprovalRequest, NetworkManager.ConnectionApprovalResponse connectionApprovalResponse)
     {
+        if(SceneManager.GetActiveScene().name != Loader.Scene.CharacterSelectScene.ToString())
+        {
+            connectionApprovalResponse.Approved = false;
+            connectionApprovalResponse.Reason = "게임이 현재 진행중입니다!";
+            return;
+        }
+
+        if (NetworkManager.Singleton.ConnectedClientsIds.Count >= MAX_PLAYER_AMOUNT)
+        {
+            connectionApprovalResponse.Approved = false;
+            connectionApprovalResponse.Reason = "인원이 꽉 찼습니다! (제한인원 : 4명)";
+            return;
+        }
         connectionApprovalResponse.Approved = true;
     }
 
     public void StartClient()
     {
         NetworkManager.Singleton.StartClient();
+        OnTryingToJoinGame?.Invoke(this, EventArgs.Empty);
+
+        NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_OnClientDisconnectCallback;
     }
+
+    private void NetworkManager_OnClientDisconnectCallback(ulong clientId)
+    {
+        OnFailedToJoinGame?.Invoke(this,EventArgs.Empty);
+    }
+
 
     public void SpawnKitchenObject(KitchenObjectSO kitchenObjectSO, IKitchenObjectParent kitchenObjectParent)
     {
