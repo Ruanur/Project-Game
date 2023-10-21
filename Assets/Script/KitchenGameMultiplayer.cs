@@ -13,24 +13,47 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     public static KitchenGameMultiplayer Instance {get; private set;}
 
     [SerializeField] private KitchenObjectListSO kitchenObjectListSO;
-
+    [SerializeField] private List<Color> playerColorList;
 
     public event EventHandler OnTryingToJoinGame;
     public event EventHandler OnFailedToJoinGame;
+    public event EventHandler OnPlayerDataNetworkListChanged;
+
+    private NetworkList<PlayerData> playerDataNetworkList;
 
     private void Awake()
     {
         Instance = this; //싱글톤 패턴으로 현재 인스턴스 설정.
 
         DontDestroyOnLoad(gameObject);
+
+        playerDataNetworkList = new NetworkList<PlayerData>();
+        playerDataNetworkList.OnListChanged += playerDataNetworkList_OnListChanged;
     }
+
+    private void playerDataNetworkList_OnListChanged(NetworkListEvent<PlayerData> changeEvent)
+    {
+        OnPlayerDataNetworkListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
     //싱글톤
+
 
     public void StartHost()
     {
         NetworkManager.Singleton.ConnectionApprovalCallback += NetworkManager_ConnectionApprovalCallback;
+        NetworkManager.Singleton.OnClientConnectedCallback += NetworkManager_OnClientDisconnectedCallback;
         NetworkManager.Singleton.StartHost();
     }
+
+    private void NetworkManager_OnClientDisconnectedCallback(ulong clientId)
+    {
+        playerDataNetworkList.Add(new PlayerData{
+            clientId = clientId,
+            colorId = GetFirstUnusedColorId(),
+        });
+    }
+
 
     private void NetworkManager_ConnectionApprovalCallback(NetworkManager.ConnectionApprovalRequest connectionApprovalRequest, NetworkManager.ConnectionApprovalResponse connectionApprovalResponse)
     {
@@ -127,4 +150,96 @@ public class KitchenGameMultiplayer : NetworkBehaviour
 
         kitchenObject.ClearKitchenObjectOnParent();
     }
+
+    public bool IsPlayerIndexConnected(int playerIndex)
+    {
+        return playerIndex < playerDataNetworkList.Count;
+    }
+
+    public int GetPlayerDataIndexFromClientId(ulong clientId)
+    {
+        for(int i = 0; i< playerDataNetworkList.Count; i++)
+        {
+            if(playerDataNetworkList[i].clientId == clientId)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public PlayerData GetPlayerDataFromClientId(ulong clientId)
+    {
+        foreach (PlayerData playerData in playerDataNetworkList)
+        {
+            if(playerData.clientId == clientId)
+            {
+                return playerData;
+            }
+        }
+        return default;
+    }
+
+    public PlayerData GetPlayerData()
+    {
+        return GetPlayerDataFromClientId(NetworkManager.Singleton.LocalClientId);
+    }
+
+    public PlayerData GetPlayerDataFromPlayerIndex(int playedIndex)
+    {
+        return playerDataNetworkList[playedIndex];
+    }
+
+    public Color GetPlayerColor(int colorId)
+    {
+        return playerColorList[colorId];
+    }
+
+    public void ChangePlayerColor(int colorId)
+    {
+        ChangePlayerColorServerRpc(colorId);
+    }
+    
+    [ServerRpc(RequireOwnership = false)]
+    private void ChangePlayerColorServerRpc(int colorId, ServerRpcParams serverRpcParams = default)
+    {
+        if(!IsColorAvailable(colorId))
+        {
+            //Color not Available
+            return;
+        }
+
+        int playerDataIndex = GetPlayerDataIndexFromClientId(serverRpcParams.Receive.SenderClientId);
+
+        PlayerData playerData = playerDataNetworkList[playerDataIndex];
+
+        playerData.colorId = colorId;
+
+        playerDataNetworkList[playerDataIndex] = playerData;
+    }
+    
+    private bool IsColorAvailable(int colorId)
+    {
+        foreach(PlayerData playerData in playerDataNetworkList)
+        {
+            if(playerData.colorId == colorId)
+            {
+                //이미 사용 중이라면
+                return false;
+            }
+        }
+        return true;
+    }
+    private int GetFirstUnusedColorId()
+    {
+        for (int i = 0; i < playerColorList.Count; i++)
+        {
+            if(IsColorAvailable(i))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
 }
+
