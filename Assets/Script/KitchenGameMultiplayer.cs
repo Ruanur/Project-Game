@@ -164,6 +164,14 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     {
         KitchenObjectSO kitchenObjectSO = GetKitchenObjectSOFromIndex(kitchenObjectSOIndex);
 
+        kitchenObjectParentNetworkObjectReference.TryGet(out NetworkObject kitchenObjectParentNetworkObject);
+        IKitchenObjectParent kitchenObjectParent = kitchenObjectParentNetworkObject.GetComponent<IKitchenObjectParent>();
+
+        if(kitchenObjectParent.HasKitchenObject())
+        {
+            return;
+        }
+
         //주방 오브젝트 생성
         Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab);
 
@@ -173,8 +181,9 @@ public class KitchenGameMultiplayer : NetworkBehaviour
 
         //KitchenObject 컴포넌트를 가져와 부모 설정
         KitchenObject kitchenObject = kitchenObjectTransform.GetComponent<KitchenObject>();
-        kitchenObjectParentNetworkObjectReference.TryGet(out NetworkObject kitchenObjectParentNetworkObject);
-        IKitchenObjectParent kitchenObjectParent = kitchenObjectParentNetworkObject.GetComponent<IKitchenObjectParent>();
+
+        
+
         kitchenObject.SetKitchenObjectParent(kitchenObjectParent);
     }
     //서버간 오브젝트 생성 동기화
@@ -202,6 +211,12 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     private void DestroyKitchenObjectServerRpc(NetworkObjectReference kitchenObjectNetworkObjectReference)
     {
         kitchenObjectNetworkObjectReference.TryGet(out NetworkObject kitchenObjectNetworkObject);
+
+        if(kitchenObjectNetworkObject == null)
+        {
+            //이미 오브젝트가 삭제되었을 때
+            return;
+        }
         KitchenObject kitchenObject = kitchenObjectNetworkObject.GetComponent<KitchenObject>();
 
         ClearKitchenObjectOnParentClientRpc(kitchenObjectNetworkObjectReference);
