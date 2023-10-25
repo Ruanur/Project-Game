@@ -19,6 +19,7 @@ public class GameInput : MonoBehaviour {
 
 
     public enum Binding {
+        //입력 바인딩 나열, 열거형
         Move_Up,
         Move_Down,
         Move_Left,
@@ -35,24 +36,31 @@ public class GameInput : MonoBehaviour {
     private PlayerInputActions playerInputActions;
 
 
-    private void Awake() {
+    private void Awake() 
+    {
+        //싱글톤 인스턴스 설정, 플레이어 입력 액션 초기화
         Instance = this;
 
 
         playerInputActions = new PlayerInputActions();
 
-        if (PlayerPrefs.HasKey(PLAYER_PREFS_BINDINGS)) {
+        if (PlayerPrefs.HasKey(PLAYER_PREFS_BINDINGS)) 
+        {
+            //이전에 저장된 입력 바인딩이 있다면 불러옴
             playerInputActions.LoadBindingOverridesFromJson(PlayerPrefs.GetString(PLAYER_PREFS_BINDINGS));
         }
 
         playerInputActions.Player.Enable();
 
+        //입력 액션에 대한 이벤트 핸들러 연결
         playerInputActions.Player.Interact.performed += Interact_performed;
         playerInputActions.Player.InteractAlternate.performed += InteractAlternate_performed;
         playerInputActions.Player.Pause.performed += Pause_performed;
     }
 
-    private void OnDestroy() {
+    private void OnDestroy() 
+    {
+        //이벤트 핸들러를 제거하고 입력 액션을 비활성화
         playerInputActions.Player.Interact.performed -= Interact_performed;
         playerInputActions.Player.InteractAlternate.performed -= InteractAlternate_performed;
         playerInputActions.Player.Pause.performed -= Pause_performed;
@@ -61,14 +69,17 @@ public class GameInput : MonoBehaviour {
     }
 
     private void Pause_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        //일시 정지 입력 액션이 발생할 때 호출되는 이벤트 핸들러
         OnPauseAction?.Invoke(this, EventArgs.Empty);
     }
 
     private void InteractAlternate_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        //재료 손질 액션이 발생할 때 호출되는 이벤트 핸들러
         OnInteractAlternateAction?.Invoke(this, EventArgs.Empty);
     }
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        //상호 작용 입력 액션이 발생할 때 호출되는 이벤트 핸들러
         OnInteractAction?.Invoke(this, EventArgs.Empty);
     }
 

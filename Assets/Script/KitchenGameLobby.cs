@@ -19,7 +19,10 @@ using Mono.CSharp.Linq;
 public class KitchenGameLobby : MonoBehaviour
 {
 
+    //Relay 서버 Join 코드를 PlayerPrefs에 저장 
     private const string KEY_RELAY_JOIN_CODE = "RelayJoinCode";
+
+
     public static KitchenGameLobby Instance { get; private set; }
 
     public event EventHandler OnCreateLobbyStarted;
@@ -45,6 +48,7 @@ public class KitchenGameLobby : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
+        //Unity 인증 초기화
         InitializeUnityAuthentication();
     }
 
@@ -76,6 +80,7 @@ public class KitchenGameLobby : MonoBehaviour
             {
                 float listLobbiesTimerMax = 3f;
                 listLobbiesTimer = listLobbiesTimerMax;
+                //주기적으로 로비 목록 가져오기, 실시간으로 로비 동기화
                 ListLobbies();
             }
         }
@@ -98,6 +103,7 @@ public class KitchenGameLobby : MonoBehaviour
 
     private bool IsLobbyHost()
     {
+        //현재 플레이어가 로비 호스트인지 확인
         return joinedLobby != null && joinedLobby.HostId == AuthenticationService.Instance.PlayerId;
     }
 
