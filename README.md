@@ -60,10 +60,10 @@ $ cd Master-Kitchen
 ![Unity](https://img.shields.io/badge/Unity-E6E6FA?style=for-the-badge&logo=unity&logoColor=black)
 
 ---
-## 화면 구성 📺
+## 인게임 구성 📺
 | 메인 페이지  |  소개 페이지   |
 | :-------------------------------------------: | :------------: |
-|  <img width="329" src="https://user-images.githubusercontent.com/50205887/208036155-a57900f7-c68a-470d-923c-ff3c296ea635.png"/> |  <img width="329" src="https://user-images.githubusercontent.com/50205887/208036645-a76cf400-85bc-4fa2-af72-86d2abf61366.png"/>|  
+|  <img width="329" src="https://github.com/user-attachments/assets/20b18985-f96d-430f-a04a-a7ff7b836e30"/> |  <img width="329" src="https://github.com/user-attachments/assets/e6c948cc-3bb9-4932-9b78-6d44e7bdc514"/>|  
 | 강좌 소개 페이지   |  강의 영상 페이지   |  
 | <img width="329" src="https://user-images.githubusercontent.com/50205887/208038737-2b32b7d2-25f4-4949-baf5-83b5c02915a3.png"/>   |  <img width="329" src="https://user-images.githubusercontent.com/50205887/208038965-43a6318a-7b05-44bb-97c8-b08b0495fba7.png"/>     |
 
