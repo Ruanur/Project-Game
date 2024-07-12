@@ -59,11 +59,6 @@ $ cd Master-Kitchen
 ![C#](https://img.shields.io/badge/C%20Sharp-512BD4?style=flat-square&logo=sharp&logoColor=white)
 ![Unity](https://img.shields.io/badge/Unity-E6E6FA?style=for-the-badge&logo=unity&logoColor=black)
 
-### Communication
-![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white)
-![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white)
-![GoogleMeet](https://img.shields.io/badge/GoogleMeet-00897B?style=for-the-badge&logo=Google%20Meet&logoColor=white)
-
 ---
 ## 화면 구성 📺
 | 메인 페이지  |  소개 페이지   |
