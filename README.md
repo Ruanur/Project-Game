@@ -7,14 +7,13 @@
 
 </div>
 
-# Voluntain Web Page v2.0
-> **성균관대학교 소프트웨어학과 온라인 해외봉사 단체** <br/> **개발기간: 2022.03 ~ 2022.10**
+# Master Kitchen
+> **인디유 게임 공모전 출품작** <br/> **개발기간: 2023.04 ~ 2023.10**
 
 ## 배포 주소
 
 > **개발 버전** : [http://voluntain.cs.skku.edu/](http://voluntain.cs.skku.edu/) <br>
-> **프론트 서버** : [http://voluntain.cs.skku.edu:33307/](http://voluntain.cs.skku.edu:33307/)<br>
-> **백엔드 서버** : [http://voluntain.cs.skku.edu:2223/](http://voluntain.cs.skku.edu:2223/)<br>
+> **빌드 버전** : [https://drive.google.com/file/d/1yyOvpkJi79B3B6D3dxK0-SjxNj_lOqet/view?usp=sharing)<br>
 
 ## 웹개발팀 소개
 
