@@ -20,22 +20,16 @@
 |      민경진       |                                                                                                                 
 | :------------------------------------------------------------------------------: | 
 |   <img width="200px" src="https://github.com/user-attachments/assets/3c97d6ba-902b-4607-a309-34ea32b5cf05" />    | 
-|   [@parkjiye](https://github.com/parkjiye)   | 
+|   [@Ruanur](https://github.com/Ruanur)   | 
 | 공주대학교 소프트웨어학과 4학년 |
 
 ## 프로젝트 소개
 
-발룬테인은 온라인 코딩 교육 봉사를 하는 단체입니다. 기존에 소프트웨어학과에서 월드프렌즈 ICT 봉사단이라는 개발도상국에서 약 학 달 간 코딩 교육 봉사를 하는 활동이 있었는데, 봉사가 일회성으로 끝나는 점에 아쉬움을 느껴 지속적인 봉사를 하고자 만들어졌습니다. 발룬테인에서는 스크래치, 파이썬 등 프로그래밍 언어에 관한 강의를 제공하고, 질의응답과 라이브 세션을 통해 한국 학생과 외국 학생 간에 소통이 이루어집니다.
+Master Kitchen은 플레이어가 주문을 받아 요리를 서빙하는 게임입니다.
+OverCooked! 게임을 친구들와 인상깊게 플레이했던 경험이 있었는데, 게임 가격이 조금 부담이였던 친구들도 있어 같이 게임을 즐기지 못한 것에 아쉬움을 느껴
+이 게임을 통해 같이 모두가 즐겼으면 좋겠다는 생각에 Master Kitchen을 만들게 되었습니다.
 
-#### Voluntain will share the knowledge of programming.
-You can take easy-to-understand lectures created by our team, including Scratch and Python. Also, improve your understanding and application skills of programming with exercise questions in the lecture videos.
-
-#### Voluntain's website will give you a learning-friendly environment.
-
-Our website supports the following component.
-1. Various online lectures with detailed descriptions and exercise questions.
-2. Q&A section to ask questions freely.
-3. Function to check the lecture you watched recently.
+플레이어가 직접 재료를 손질하고, 패티를 굽고, 접시에 플레이팅 하여 제한시간안에 더 많은 음식을 서빙하는 것이 게임 내에서의 목표입니다.
 
 ## 시작 가이드
 ### Requirements
