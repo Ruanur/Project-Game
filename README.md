@@ -43,8 +43,8 @@ For building and running the application you need:
 
 ### Installation
 ``` bash
-$ git clone https://github.com/Voluntain-SKKU/Voluntain-2nd.git
-$ cd Voluntain-2nd
+$ git clone https://github.com/Ruanur/Project-Game.git
+$ cd Master-Kitchen
 ```
 #### Backend
 ```
