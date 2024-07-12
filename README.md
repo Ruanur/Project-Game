@@ -78,7 +78,7 @@ $ cd Master-Kitchen
 ### ⭐️ 강좌 선택 및 강의 영상 시청 기능
 - Scratch, Python 2개 강좌 및 각 강좌마다 10개 가량의 강의 영상 제공
 - 추후 지속적으로 강좌 추가 및 업로드 예정
-
+<img width="329" src="https://github.com/user-attachments/assets/0f29abad-dd0b-4e44-8b24-5be7f0791737"/>
 ### ⭐️ 강의 관련 및 단체에 대한 자유로운 댓글 작성 가능
 - Disqus를 이용하여 강의 관련 질문이나 단체에 대한 질문 작성 가능
 
