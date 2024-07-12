@@ -37,9 +37,8 @@ OverCooked! 게임을 친구들와 인상깊게 플레이했던 경험이 있었
 ### Requirements
 For building and running the application you need:
 
-- [Node.js 14.19.3](https://nodejs.org/ca/blog/release/v14.19.3/)
-- [Npm 9.2.0](https://www.npmjs.com/package/npm/v/9.2.0)
-- [Strapi 3.6.6](https://www.npmjs.com/package/strapi/v/3.6.6)
+- [Unity Editor](https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.exe)
+- [Unity 2022.2.12f1](unityhub://2022.2.12f1/022dac4955a3)
 
 ### Installation
 ``` bash
