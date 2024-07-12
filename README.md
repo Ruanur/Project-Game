@@ -72,7 +72,7 @@ $ cd Master-Kitchen
 | 시간 초과, 게임 오버 |
 | <img width="329" src="https://github.com/user-attachments/assets/2516a3fa-e854-42e5-a422-8f56fed32dc0"/>   
 ---
-## 게임 내 구조 📦
+## 게임 내 구조 ➶
 
 <img width="329" src="https://github.com/user-attachments/assets/0f29abad-dd0b-4e44-8b24-5be7f0791737"/>
 
