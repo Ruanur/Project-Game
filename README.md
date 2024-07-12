@@ -52,7 +52,7 @@ $ cd Master-Kitchen
 
 ### Environment
 ![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio%202022-007ACC?style=for-the-badge&logo=Visual%20Studio%20Code&logoColor=white)
-![Github Desktop](https://img.shields.io/badge/Github Desktop-F05032?style=for-the-badge&logo=GitHub&logoColor=purple)
+![Github Desktop](https://img.shields.io/badge/Github%2Desktop-F05032?style=for-the-badge&logo=GitHub&logoColor=purple)
 ![Github](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white)             
 
 ### Config
