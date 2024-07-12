@@ -30,6 +30,7 @@ OverCooked! 게임을 친구들와 인상깊게 플레이했던 경험이 있었
 이 게임을 통해 같이 모두가 즐겼으면 좋겠다는 생각에 Master Kitchen을 만들게 되었습니다.
 
 플레이어가 직접 재료를 손질하고, 패티를 굽고, 접시에 플레이팅 하여 제한시간안에 더 많은 음식을 서빙하는 것이 게임 내에서의 목표입니다.
+<br>
 <img width="780" alt="image" src="https://github.com/user-attachments/assets/8945b432-69e2-46ad-aeb9-2a0907b260e2">
 
 ## 시작 가이드
