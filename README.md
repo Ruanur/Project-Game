@@ -38,27 +38,12 @@ OverCooked! 게임을 친구들와 인상깊게 플레이했던 경험이 있었
 For building and running the application you need:
 
 - [Unity Editor](https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.exe)
-- [Unity 2022.2.12f1](https://unityhub://2022.2.12f1/022dac4955a3)
+- [Unity 2022.2.12f1](https://unity.com/kr/releases/editor/archive)
 
 ### Installation
 ``` bash
 $ git clone https://github.com/Ruanur/Project-Game.git
 $ cd Master-Kitchen
-```
-#### Backend
-```
-$ cd strapi-backend
-$ nvm use v.14.19.3
-$ npm install
-$ npm run develop
-```
-
-#### Frontend
-```
-$ cd voluntain-app
-$ nvm use v.14.19.3
-$ npm install 
-$ npm run dev
 ```
 
 ---
