@@ -68,8 +68,8 @@ $ cd Master-Kitchen
 | <img width="329" src="https://github.com/user-attachments/assets/0abc507f-280d-4de6-8a5e-ab839950f89c"/>   |  <img width="329" src="https://github.com/user-attachments/assets/b8dad125-c262-4cc2-9a85-28dcc6473b4d"/>     |
 | 서빙 성공   |  서빙 실패   |  
 | <img width="329" src="https://github.com/user-attachments/assets/21c91b96-898c-4a9e-8a72-767a1ad5bb64"/>   |  <img width="329" src="https://github.com/user-attachments/assets/b2a089f0-a513-47ea-bbdc-28cf8bc540d8"/>     |
-| 강좌 소개 페이지   |  강의 영상 페이지   |  
-| <img width="329" src="https://user-images.githubusercontent.com/50205887/208038737-2b32b7d2-25f4-4949-baf5-83b5c02915a3.png"/>   |  <img width="329" src="https://user-images.githubusercontent.com/50205887/208038965-43a6318a-7b05-44bb-97c8-b08b0495fba7.png"/>     |
+| 멀티플레이 화면   |  캐릭터 선택 화면   |  
+| <img width="329" src="https://github.com/user-attachments/assets/34d16b2e-db3e-4e20-82a4-66ae7fd45e5f"/>   |  <img width="329" src="https://github.com/user-attachments/assets/7200d5b0-461d-4aaf-9b22-ea5a8134ecf3"/>     |
 
 ---
 ## 주요 기능 📦
