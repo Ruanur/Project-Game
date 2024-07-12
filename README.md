@@ -76,6 +76,7 @@ $ cd Master-Kitchen
 ## 게임 내 구조 📦
 <img width="329" src="https://github.com/user-attachments/assets/0f29abad-dd0b-4e44-8b24-5be7f0791737"/>
 ---
+
 ## 주요 기능 📦
 
 ### ⭐️ 강좌 선택 및 강의 영상 시청 기능
