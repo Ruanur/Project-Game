@@ -12,8 +12,8 @@
 
 ## 배포 주소
 
-> **개발 버전** : [http://voluntain.cs.skku.edu/](http://voluntain.cs.skku.edu/) <br>
-> **빌드 버전** : [https://drive.google.com/file/d/1yyOvpkJi79B3B6D3dxK0-SjxNj_lOqet/view?usp=sharing]<br>
+> **개발 버전** : [https://drive.google.com/file/d/11qh8j_F4D8HitKmhPnFbc_ntenko1TZJ/view?usp=sharing] <br>
+> **빌드 버전(실행 파일)** : [https://drive.google.com/file/d/1yyOvpkJi79B3B6D3dxK0-SjxNj_lOqet/view?usp=sharing]<br>
 
 ## 웹개발팀 소개
 
