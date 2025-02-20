@@ -86,29 +86,33 @@ public class StoveCounter : BaseCounter, IHasProgress
 
     private void Update()
     {
-        if(!IsServer)
+        // 서버에서만 코드가 실행되도록 함
+        if (!IsServer)
         {
             return;
         }
+        // 주방 오브젝트가 있는지 확인
         if (HasKitchenObject())
         {
             switch (state.Value)
             {
                 case State.Idle:
+                    // 상태가 Idle일 때는 아무 작업도 하지 않음
                     break;
+
                 case State.Frying:
                     fryingTimer.Value += Time.deltaTime;
 
+                    // 익히는 시간이 최대 시간을 초과하면 요리가 완료된 것으로 간주
                     if (fryingTimer.Value > fryingRecipeSO.fryingTimerMax)
                     {
-                        //Fried
-                        //요리가 완료되면 요리 결과 생성
+                        // 현재 주방 오브젝트 파괴
                         KitchenObject.DestroyKitchenObject(GetKitchenObject());
-                        
 
+                        // 새로운 주방 오브젝트(익힘 결과) 생성
                         KitchenObject.SpawnKitchenObject(fryingRecipeSO.output, this);
 
-                        //상태를 Fried로 변경하고, Burning 레시피 설정
+                        // 상태를 Fried로 변경하고, 태우는 레시피 설정
                         state.Value = State.Fried;
                         burningTimer.Value = 0f;
                         SetBurningRecipeSOClientRpc(
@@ -121,25 +125,27 @@ public class StoveCounter : BaseCounter, IHasProgress
                 case State.Fried:
                     burningTimer.Value += Time.deltaTime;
 
-
-                    if (burningTimer.Value> burningRecipeSO.burningTimerMax)
+                    // 태우는 시간이 최대 시간을 초과하면 요리가 완전히 타버린 것으로 간주
+                    if (burningTimer.Value > burningRecipeSO.burningTimerMax)
                     {
-                        //Fried
-                        //요리가 완료되면 요리 결과 생성 
+                        // 현재 주방 오브젝트 파괴
                         KitchenObject.DestroyKitchenObject(GetKitchenObject());
 
+                        // 새로운 주방 오브젝트(탄 결과물) 생성
                         KitchenObject.SpawnKitchenObject(burningRecipeSO.output, this);
 
-                        //상태를 Burned로 변경
+                        // 상태를 Burned로 변경
                         state.Value = State.Burned;
                     }
                     break;
 
                 case State.Burned:
-                    break; 
+                    // 상태가 Burned일 때는 아무 작업도 하지 않음
+                    break;
             }
         }
     }
+
 
     //플레이어와 상호 작용 처리 
     public override void Interact(Player player)

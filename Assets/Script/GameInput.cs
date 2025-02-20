@@ -39,6 +39,7 @@ public class GameInput : MonoBehaviour {
     private void Awake() 
     {
         //싱글톤 인스턴스 설정, 플레이어 입력 액션 초기화
+        //다른 스크립트 내에서 이 스크립트에 접근하게 하기 위함
         Instance = this;
 
 

@@ -49,7 +49,8 @@ public class DeliveryManager : NetworkBehaviour
 
             if (KitchenGameManager.Instance.IsGamePlaying() && waitingRecipeSOList.Count < waitingRecipesMax)
             {
-                //RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)]; //랜덤으로 레시피 제시
+                //RecipeSO waitingRecipeSO = recipeListSO.recipeSOList[UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count)]; 
+                //랜덤으로 레시피 제시
                 int waitingRecipeSOIndex = UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count);
                 SpawnNewWaitingRecipeClientRpc(waitingRecipeSOIndex);
             }

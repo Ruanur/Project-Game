@@ -10,9 +10,9 @@ public class ClearCounter : BaseCounter
     //Player와 상호작용하는 메소드 재정의
     public override void Interact(Player player)
     {
+        //카운터에 KitchenObject가 없을 때
         if (!HasKitchenObject())
-        {
-            //KitchenObject가 없을 때
+        { 
             if (player.HasKitchenObject())
             {
                 //플레이어가 오브젝트를 지니고 있을 때, 현재 오브젝트를 이 위치에 설정
