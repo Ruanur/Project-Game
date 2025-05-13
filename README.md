@@ -1,4 +1,4 @@
-# Annihilation
+# Choas Kitchen
 
 <div align="center">
 <img width="820" alt="image" src="https://github.com/user-attachments/assets/cbd53e91-7280-4748-975e-3b099b771d3f">
@@ -12,7 +12,7 @@
 ## 배포 주소
 
 > **개발 버전** : [https://drive.google.com/file/d/11qh8j_F4D8HitKmhPnFbc_ntenko1TZJ/view?usp=sharing] <br>
-> **빌드 버전(실행 파일)** : [https://naver.me/Fzsl51uK]<br>
+> **빌드 버전(실행 파일)** : [https://drive.google.com/file/d/1yyOvpkJi79B3B6D3dxK0-SjxNj_lOqet/view]<br>
 
 ## 개발팀 소개
 
