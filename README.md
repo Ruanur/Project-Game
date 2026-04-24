@@ -18,7 +18,7 @@
 
 |      민경진       |                                                                                                                 
 | :------------------------------------------------------------------------------: | 
-|   <img width="200px" src="https://github.com/user-attachments/assets/3c97d6ba-902b-4607-a309-34ea32b5cf05" />    | 
+|   <img width="200px" src="https://github.com/user-attachments/assets/0cb4b61a-0a01-4629-9147-fb8cd0c96285"/>    | 
 |   [@Ruanur](https://github.com/Ruanur)   | 
 | 공주대학교 소프트웨어학과 4학년 |
 
