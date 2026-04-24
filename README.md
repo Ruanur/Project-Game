@@ -74,7 +74,7 @@ $ cd Master-Kitchen
 ---
 ## 게임 내 구조 ➶
 
-<img width="329" src="https://github.com/user-attachments/assets/0cb4b61a-0a01-4629-9147-fb8cd0c96285"/>
+<img width="329" src="https://github.com/user-attachments/assets/0f29abad-dd0b-4e44-8b24-5be7f0791737"/>
 
 - 게임의 전체적인 구조는 다음과 같습니다.
 - 멀티플레이 씬과 싱글플레이 씬이 있으며, 내부의 UI를 통해 각 씬의 상태에 따라 게임이 진행됩니다.
